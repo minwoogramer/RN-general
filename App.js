@@ -4,6 +4,8 @@ import * as Font from "expo-font";
 import { Text, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset, useAssets } from "expo-asset";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./navigation/Tabs";
 //두개의 Utility functions을 만들었음
 // 한 배열을 넣어서 다른배열을 받고있음
 const loadFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));//font들을 한번에 불러오고 싶을때 font는 Promise의 배열들이 될꺼임 
@@ -40,5 +42,9 @@ export default function App() {
       />
     );
   }
-  return <Text>We are done loading!</Text>;
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
 }
